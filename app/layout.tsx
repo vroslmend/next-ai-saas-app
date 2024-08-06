@@ -7,7 +7,8 @@ import {
   SignInButton,
   SignedIn,
   SignedOut,
-  UserButton
+  UserButton,
+  SignIn
 } from '@clerk/nextjs'
 
 const IBMPlex = IBM_Plex_Sans({ 
@@ -30,7 +31,14 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body>
-          {children}
+          <SignedOut>
+            <div className="flex flex-col items-center justify-center h-screen">
+              <SignIn routing="hash"/>
+            </div>
+          </SignedOut>
+          <SignedIn>
+            {children}
+          </SignedIn>
         </body>
       </html>
     </ClerkProvider>
