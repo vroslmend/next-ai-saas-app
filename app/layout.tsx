@@ -4,11 +4,11 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import {
   ClerkProvider,
-  SignInButton,
   SignedIn,
   SignedOut,
-  UserButton,
-  SignIn
+  SignIn,
+  SignInButton,
+  UserButton
 } from '@clerk/nextjs'
 
 const IBMPlex = IBM_Plex_Sans({ 
@@ -31,14 +31,12 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body>
-          <SignedOut>
-            <div className="flex flex-col items-center justify-center h-screen">
-              <SignIn routing="hash"/>
-            </div>
-          </SignedOut>
-          <SignedIn>
-            {children}
-          </SignedIn>
+          <header>
+            <SignedOut>
+              <SignInButton />
+            </SignedOut>
+          </header>
+          {children}
         </body>
       </html>
     </ClerkProvider>
