@@ -1,6 +1,6 @@
 <div align="center">
   <br />
-    ![imaginify-showcase](https://github.com/user-attachments/assets/0078f1c8-4f1c-48d0-8936-8da18fde6960)
+   <img src="https://github.com/user-attachments/assets/0078f1c8-4f1c-48d0-8936-8da18fde6960" />
   <br />
 
   <div>
