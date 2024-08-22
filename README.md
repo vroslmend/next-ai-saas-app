@@ -14,9 +14,11 @@
   <h3 align="center">Imaginify - An AI SaaS Platform</h3>
 
    <div align="center">
-    Imaginify is an AI-powered image enhancement platform built with Next.js. It leverages cutting-edge AI models to automatically enhance and transform images, making it a powerful tool for photographers, designers, and anyone looking to elevate their visual content.
+     Imaginify is an AI-powered image enhancement platform built with Next.js. It leverages cutting-edge AI models to automatically enhance and transform images, making it a powerful tool for photographers, designers, and anyone looking to elevate their visual content.
     </div>
 </div>
+
+<h3 align="center">Check it out here: <a href="https://imaginify-six-sigma.vercel.app/">Imaginify</a></h3>
 
 ## 📋 <a name="table">Table of Contents</a>
 
