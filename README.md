@@ -1,144 +1,42 @@
 <div align="center">
-  <br />
-   <img src="https://github.com/user-attachments/assets/0078f1c8-4f1c-48d0-8936-8da18fde6960" />
-  <br />
-
-  <div>
-    <img src="https://img.shields.io/badge/-Next_JS-black?style=for-the-badge&logoColor=white&logo=nextdotjs&color=000000" alt="nextdotjs" />
-    <img src="https://img.shields.io/badge/-TypeScript-black?style=for-the-badge&logoColor=white&logo=typescript&color=3178C6" alt="typescript" />
-    <img src="https://img.shields.io/badge/-Stripe-black?style=for-the-badge&logoColor=white&logo=stripe&color=008CDD" alt="stripe" />
-    <img src="https://img.shields.io/badge/-MongoDB-black?style=for-the-badge&logoColor=white&logo=mongodb&color=47A248" alt="mongodb" />
-    <img src="https://img.shields.io/badge/-Tailwind_CSS-black?style=for-the-badge&logoColor=white&logo=tailwindcss&color=06B6D4" alt="tailwindcss" />
-  </div>
-
-  <h3 align="center">Imaginify - An AI SaaS Platform</h3>
-
-   <div align="center">
-     Imaginify is an AI-powered image enhancement platform built with Next.js. It leverages cutting-edge AI models to automatically enhance and transform images, making it a powerful tool for photographers, designers, and anyone looking to elevate their visual content.
-    </div>
+  <img src="https://github.com/user-attachments/assets/0078f1c8-4f1c-48d0-8936-8da18fde6960" alt="Imaginify interface" />
 </div>
 
-<h3 align="center">Check it out here: <a href="https://imaginify-six-sigma.vercel.app/">Imaginify</a></h3>
+# Imaginify
 
-## 📋 <a name="table">Table of Contents</a>
+A full-stack AI image editing app built with Next.js 14. It combines Cloudinary transformations with Clerk authentication, MongoDB persistence and a Stripe-backed credits flow.
 
-1. 🤖 [Introduction](#introduction)
-2. ⚙️ [Tech Stack](#tech-stack)
-3. 🔋 [Features](#features)
-4. 🤸 [Quick Start](#quick-start)
-7. 🚀 [More](#more)
+## What it does
 
-## <a name="tech-stack">⚙️ Tech Stack</a>
+- restores images and removes backgrounds
+- applies generative fill, object removal and object recoloring
+- stores transformations in a searchable community gallery
+- gives each user a profile and credit balance
+- handles authentication with Clerk and checkout with Stripe
 
-- Next.js
-- TypeScript
-- MongoDB
-- Clerk
-- Cloudinary
-- Stripe
-- Shadcn
-- TailwindCSS
+## Stack
 
-## <a name="features">🔋 Features</a>
+Next.js · TypeScript · Cloudinary · Clerk · MongoDB · Stripe · Tailwind CSS
 
-👉 **Authentication and Authorization**: Secure user access with registration, login, and route protection.
+## Running locally
 
-👉 **Community Image Showcase**: Explore user transformations with easy navigation using pagination
+You will need Node.js 18.17 or newer and accounts for Clerk, MongoDB, Cloudinary and Stripe.
 
-👉 **Advanced Image Search**: Find images by content or objects present inside the image quickly and accurately
-
-👉 **Image Restoration**: Revive old or damaged images effortlessly
-
-👉 **Image Recoloring**: Customize images by replacing objects with desired colors easily
-
-👉 **Image Generative Fill**: Fill in missing areas of images seamlessly
-
-👉 **Object Removal**: Clean up images by removing unwanted objects with precision
-
-👉 **Background Removal**: Extract objects from backgrounds with ease
-
-👉 **Download Transformed Images**: Save and share AI-transformed images conveniently
-
-👉 **Transformed Image Details**: View details of transformations for each image
-
-👉 **Transformation Management**: Control over deletion and updates of transformations
-
-👉 **Credits System**: Earn or purchase credits for image transformations
-
-👉 **Profile Page**: Access transformed images and credit information personally
-
-👉 **Credits Purchase**: Securely buy credits via Stripe for uninterrupted use
-
-👉 **Responsive UI/UX**: A seamless experience across devices with a user-friendly interface
-
-
-and many more, including code architecture and reusability 
-
-## <a name="quick-start">🤸 Quick Start</a>
-
-Follow these steps to set up the project locally on your machine.
-
-**Prerequisites**
-
-Make sure you have the following installed on your machine:
-
-- [Git](https://git-scm.com/)
-- [Node.js](https://nodejs.org/en)
-- [npm](https://www.npmjs.com/) (Node Package Manager)
-
-**Cloning the Repository**
-
-```bash
-git clone https://github.com/vroslmend/next-ai-saas-app.git
-cd next-ai-saas-app
-```
-
-**Installation**
-
-Install the project dependencies using npm:
-
-```bash
+```powershell
+npm ci
+Copy-Item .env.example .env.local
 npm run dev
 ```
 
-**Set Up Environment Variables**
+Fill in `.env.local`, then open [http://localhost:3000](http://localhost:3000).
 
-Create a new file named `.env.local` in the root of your project and add the following content:
+The application expects these webhook endpoints:
 
-```env
-#NEXT
-NEXT_PUBLIC_SERVER_URL=
+- Clerk: `/api/webhooks/clerk` for user creation, updates and deletion
+- Stripe: `/api/webhooks/stripe` for completed checkout sessions
 
-#MONGODB
-MONGODB_URL=
+For local webhook testing, expose the development server with a tunnel or use the provider's CLI forwarding tools.
 
-#CLERK
-NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
-CLERK_SECRET_KEY=
-WEBHOOK_SECRET=
+## Acknowledgements
 
-NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
-NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
-NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/
-NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/
-
-#CLOUDINARY
-NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=
-CLOUDINARY_API_KEY=
-CLOUDINARY_API_SECRET=
-
-#STRIPE
-STRIPE_SECRET_KEY=
-STRIPE_WEBHOOK_SECRET=
-NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=
-```
-
-Replace the placeholder values with your actual respective account credentials. You can obtain these credentials by signing up on the [Clerk](https://clerk.com/), [MongoDB](https://www.mongodb.com/), [Cloudinary](https://cloudinary.com/) and [Stripe](https://stripe.com)
-
-**Running the Project**
-
-```bash
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) in your browser to view the project.
+Based on the original [Imaginify reference implementation](https://github.com/adrianhajdin/ai_saas_app).

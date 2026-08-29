@@ -18,8 +18,8 @@ const IBMPlex = IBM_Plex_Sans({
  });
 
 export const metadata: Metadata = {
-  title: "AI Saas App",
-  description: "AI Powered Image Generator",
+  title: "Imaginify",
+  description: "AI image editing with Cloudinary transformations",
 };
 
 export default function RootLayout({
